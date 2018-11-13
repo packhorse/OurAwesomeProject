@@ -8,26 +8,25 @@
 
 import Foundation
 
-class Square {
-    var value: String
-
-    
-    init(value: String) {
-        self.value = value
-    }
+struct Game {
+    //This array of squares will hold 9 squares
+    var squares: [Square]
+    // This array will hold the first player and the current player
+    var players: [Player]
 }
-//extension Square{
-//    
-//    static var squares: [Square] {
-//        let a1 = Square(value: "")
-//        let a2 = Square(value: "")
-//        let a3 = Square(value: "")
-//        let b1 = Square(value: "")
-//        let b2 = Square(value: "")
-//        let b3 = Square(value: "")
-//        let c1 = Square(value: "")
-//        let c2 = Square(value: "")
-//        let c3 = Square(value: "")
-//        return []
-//    }
-//}
+
+enum Team: String {
+    case x = "X"
+    case o = "O"
+    
+}
+
+struct Square {
+    var team: Team?
+    
+}
+
+struct Player {
+    let team: Team
+    var currentPlayers: String
+}
