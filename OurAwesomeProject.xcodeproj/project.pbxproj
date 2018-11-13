@@ -13,7 +13,7 @@
 		B85813F6219B3E7400CF500C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B85813F5219B3E7400CF500C /* Assets.xcassets */; };
 		B85813F9219B3E7400CF500C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B85813F7219B3E7400CF500C /* LaunchScreen.storyboard */; };
 		B8581405219B71EB00CF500C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8581404219B71EB00CF500C /* Game.swift */; };
-		B8581408219B720D00CF500C /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8581407219B720D00CF500C /* GameController.swift */; };
+		B8581408219B720D00CF500C /* SquareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8581407219B720D00CF500C /* SquareController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		B85813F8219B3E7400CF500C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B85813FA219B3E7400CF500C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8581404219B71EB00CF500C /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		B8581407219B720D00CF500C /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		B8581407219B720D00CF500C /* SquareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 		B8581406219B71F900CF500C /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B8581407219B720D00CF500C /* GameController.swift */,
+				B8581407219B720D00CF500C /* SquareController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -182,7 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B85813F1219B3E7100CF500C /* ViewController.swift in Sources */,
-				B8581408219B720D00CF500C /* GameController.swift in Sources */,
+				B8581408219B720D00CF500C /* SquareController.swift in Sources */,
 				B8581405219B71EB00CF500C /* Game.swift in Sources */,
 				B85813EF219B3E7100CF500C /* AppDelegate.swift in Sources */,
 			);
