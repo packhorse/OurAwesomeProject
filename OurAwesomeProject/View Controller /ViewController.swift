@@ -10,9 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var player1RedView: UIView!
+    @IBOutlet weak var player2BlueView: UIView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        player1RedView.layer.cornerRadius = 20
+        player2BlueView.layer.cornerRadius = 20
     }
 
 
