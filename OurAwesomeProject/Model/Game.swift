@@ -7,3 +7,26 @@
 //
 
 import Foundation
+
+struct Game {
+    //This array of squares will hold 9 squares
+    var squares: [Square]
+    // This array will hold the first player and the current player
+    var players: [Player]
+}
+
+enum Team: String {
+    case x = "X"
+    case o = "O"
+    
+}
+
+struct Square {
+    var team: Team?
+    
+}
+
+struct Player {
+    let team: Team
+    var currentPlayers: String
+}
