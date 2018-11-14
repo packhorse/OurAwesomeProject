@@ -17,10 +17,13 @@ class GameController {
     
     // Source of truth
     var game: Game?
+    
     var currentPlayer: Player?
     var playerHasWon = false
     let maxMoves = 9
     var currentMove = 1
+    
+    // MARK: - SQUARES DICTIONARY
     
     // Dictionary to store square keys
     var squares: [String : Square] = [
@@ -75,26 +78,13 @@ class GameController {
         var c2 = squares["c2"],
         var c3 = squares["c3"] else {return}
             
-        if (a1 == a2 && a2 == a3) || (b1 == b2 && b2 == b3) || (c1 == c2 && c2 == c3) || (a1 == b1 && b1 == c1) || (a2 == b2 && b2 == c2) || (a3 == b3 && b3 == c3) || (a1 == b2 && b2 == c3) || (c1 == b2 && b2 == a3) || {
+        if (a1.team == a2.team && a2.team == a3.team) || (b1.team == b2.team && b2.team == b3.team) || (c1.team == c2.team && c2.team == c3.team) || (a1.team == b1.team && b1.team == c1.team) || (a2.team == b2.team && b2.team == c2.team) || (a3.team == b3.team && b3.team == c3.team) || (a1.team == b2.team && b2.team == c3.team) || (c1.team == b2.team && b2.team == a3.team) {
             
             // If there is an equal trio, declare a winner
             let winnerAnnouncement = "\(currentPlayer) won the game!"
         }
         
-        // CHANGE: It is impossible for these to be nil
-        if a1 != nil &&
-            a2 != nil &&
-            a3 != nil &&
-            b1 != nil &&
-            b2 != nil &&
-            b3 != nil &&
-            c1 != nil &&
-            c2 != nil &&
-            c3 != nil {
-            
-            // if all squares have a value, call the game as a tie
-            let winnerAnnouncement = "The game was a tie."
-        }
+        checkIfTie(squares: squares)
         
         // Otherwise toggle player
         if currentPlayer == game.players.first {
@@ -104,9 +94,16 @@ class GameController {
         }
     }
     
+    func checkIfTie(squares: [String : Square]) {
+        for (_, value) in squares {
+            if value.team == Team.o || value.team == Team.x {
+                return
+            }
+            let winnerAnnouncement = "The game was a tie."
+        }
+    }
+    
     func clearBoard () {
-        
-        // Clear VC
         
         // Reset all dictionary values back to .empty
         var squares: [String : Square] = [

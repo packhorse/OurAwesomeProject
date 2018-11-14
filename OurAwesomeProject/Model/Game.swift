@@ -10,7 +10,7 @@ import Foundation
 
 struct Game {
     //This array of squares will hold 9 squares
-    var squares: [Square]
+    var squares: [String : Square]
     // This array will hold the first player and the current player
     var players: [Player]
 }
