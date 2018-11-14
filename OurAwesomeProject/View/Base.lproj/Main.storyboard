@@ -139,6 +139,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YV9-sC-MnD">
                                 <rect key="frame" x="147" y="599" width="81" height="30"/>
                                 <state key="normal" title="Clear Board"/>
+                                <connections>
+                                    <action selector="clearTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e2J-dd-SSO"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ni-g4-F5D">
                                 <rect key="frame" x="137" y="536.5" width="101" height="20.5"/>
@@ -178,6 +181,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="A1Square" destination="Gx3-7c-k8c" id="kNM-WN-scj"/>
+                        <outlet property="A2Square" destination="Elr-X7-Sj5" id="34E-og-A8I"/>
+                        <outlet property="A3Square" destination="atR-nd-qPS" id="CxQ-8h-Ufd"/>
+                        <outlet property="B1Square" destination="13M-ZV-l9i" id="QwD-lg-zYX"/>
+                        <outlet property="B2Square" destination="W5c-5f-cRJ" id="HeW-Ok-uEf"/>
+                        <outlet property="B3Square" destination="uUk-DY-KNF" id="XLH-Fu-pxa"/>
+                        <outlet property="C1Square" destination="iIP-Lr-bob" id="lvM-HZ-Fbg"/>
+                        <outlet property="C2Square" destination="70n-dl-B1f" id="sI0-af-dCk"/>
+                        <outlet property="C3Square" destination="rW6-FU-AjY" id="ql2-9G-rln"/>
                         <outlet property="player1RedView" destination="Lhx-NE-rsP" id="3Ux-ec-873"/>
                         <outlet property="player2BlueView" destination="aIB-Uh-seV" id="xsy-3a-K98"/>
                     </connections>
