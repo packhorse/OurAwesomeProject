@@ -15,26 +15,32 @@ class SquareController {
     // Shared
     static let shared = SquareController()
     
+    
     // Source of truth
     lazy var squares: [Square] = {
-        let a1 = Square(value: "")
-        let a2 = Square(value: "")
-        let a3 = Square(value: "")
-        let b1 = Square(value: "")
-        let b2 = Square(value: "")
-        let b3 = Square(value: "")
-        let c1 = Square(value: "")
-        let c2 = Square(value: "")
-        let c3 = Square(value: "")
+        let a1 = Square(team: Team(rawValue: ""))
+        let a2 = Square(team: Team(rawValue: ""))
+        let a3 = Square(team: Team(rawValue: ""))
+        let b1 = Square(team: Team(rawValue: ""))
+        let b2 = Square(team: Team(rawValue: ""))
+        let b3 = Square(team: Team(rawValue: ""))
+        let c1 = Square(team: Team(rawValue: ""))
+        let c2 = Square(team: Team(rawValue: ""))
+        let c3 = Square(team: Team(rawValue: ""))
         
         return[a1, a2, a3, b1, b2, b3, c1, c2, c3]
     }()
+    
+    
     
     // MARK: - FUNCTIONS
     
     func squareTapped () {
         
         // Determine currentPlayer
+        
+        
+        
         
         // Exit function if tapped square already has value
         
@@ -69,3 +75,4 @@ class SquareController {
         // Reset player and square values
     }
 }
+
