@@ -18,15 +18,19 @@ struct Game {
 enum Team: String {
     case x = "X"
     case o = "O"
-    
+    case empty = ""
 }
 
 struct Square {
-    var team: Team?
+
+    var team: Team
     
 }
 
-struct Player {
+struct Player: Equatable {
     let team: Team
-    var currentPlayers: String
+    
+    static func ==(lhs: Player, rhs: Player) -> Bool {
+        return lhs.team == rhs.team
+    }
 }
