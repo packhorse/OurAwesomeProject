@@ -24,11 +24,14 @@ enum Team: String {
 struct Square {
 
     var team: Team
+    mutating func setTeam(team: Team) {
+        self.team = team
+    }
     
 }
 
 struct Player: Equatable {
-    let team: Team
+    var team: Team
     
     static func ==(lhs: Player, rhs: Player) -> Bool {
         return lhs.team == rhs.team

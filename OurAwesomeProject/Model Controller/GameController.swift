@@ -45,28 +45,23 @@ class GameController {
         let player2 = Player(team: .o)
         let newGame = Game(squares: squares, players: [player1, player2])
         self.game = newGame
+        self.currentPlayer = player1
     }
     
-    func squareTapped (button: UIButton) {
+    func squareValueChanged (_ squareLocation: String, team: Team) {
+        squares[squareLocation] = Square(team: team)
         
-        // Exit function if tapped square already has value
-        if button.titleLabel?.text != "" {
-            return
-            
-        } else {
-            
-            // Track whether current player is "X" or "O"
-            guard let team = currentPlayer?.team else {return}
-            
-            // Change title of button of the square to match current player team ("X" or "O")
-            button.setTitle("\(team)", for: .normal)
-            
-            // Assign current team ("X" or "O") to dictionary key that matches button tapped
-            squares[button.restorationIdentifier ?? ""] = Square(team: team)
-        }
+        isThereAWinner()
     }
-        
-    func isThereAWinner (game: Game) {
+    
+    func clearBoardValues() {
+        for (key, _) in game!.squares {
+            game!.squares[key] = Square(team: .empty)
+        }
+        print("wofofe-ofew")
+    }
+    
+    func isThereAWinner() {
         
         guard var a1 = squares["a1"],
         var a2 = squares["a2"],
@@ -78,19 +73,34 @@ class GameController {
         var c2 = squares["c2"],
         var c3 = squares["c3"] else {return}
             
-        if (a1.team == a2.team && a2.team == a3.team) || (b1.team == b2.team && b2.team == b3.team) || (c1.team == c2.team && c2.team == c3.team) || (a1.team == b1.team && b1.team == c1.team) || (a2.team == b2.team && b2.team == c2.team) || (a3.team == b3.team && b3.team == c3.team) || (a1.team == b2.team && b2.team == c3.team) || (c1.team == b2.team && b2.team == a3.team) {
+        if (a1.team == a2.team && a2.team == a3.team) ||
+            (b1.team == b2.team && b2.team == b3.team) ||
+            (c1.team == c2.team && c2.team == c3.team) ||
+            (a1.team == b1.team && b1.team == c1.team) ||
+            (a2.team == b2.team && b2.team == c2.team) ||
+            (a3.team == b3.team && b3.team == c3.team) ||
+            (a1.team == b2.team && b2.team == c3.team) ||
+            (c1.team == b2.team && b2.team == a3.team) {
+            
+//
+//        if (a1.team == a2.team && a2.team == a3.team) && a1.team != Team.empty ||
+//            (b1.team == b2.team && b2.team == b3.team) && b1.team != Team.empty ||
+//            (c1.team == c2.team && c2.team == c3.team) && c1.team != Team.empty ||
+//            (a1.team == b1.team && b1.team == c1.team) && a1.team != Team.empty ||
+//            (a2.team == b2.team && b2.team == c2.team) && a2.team != Team.empty ||
+//            (a3.team == b3.team && b3.team == c3.team) && a3.team != Team.empty ||
+//            (a1.team == b2.team && b2.team == c3.team) && a1.team != Team.empty ||
+//            (c1.team == b2.team && b2.team == a3.team) && c1.team != Team.empty {
             
             // If there is an equal trio, declare a winner
-            let winnerAnnouncement = "\(currentPlayer) won the game!"
+            print("\(currentPlayer) won the game!")
         }
         
         checkIfTie(squares: squares)
         
-        // Otherwise toggle player
-        if currentPlayer == game.players.first {
+        // Otherwise toggle the player
+        if currentPlayer == game.player.first {
             currentPlayer = game.players.last
-        } else {
-            currentPlayer = game.players.first
         }
     }
     
@@ -99,7 +109,7 @@ class GameController {
             if value.team == Team.o || value.team == Team.x {
                 return
             }
-            let winnerAnnouncement = "The game was a tie."
+            print("The game was a tie.")
         }
     }
     
